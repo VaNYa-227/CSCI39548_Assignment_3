@@ -108,5 +108,14 @@ function clearAll(){
 }
 
 function fillU(){
-    alert("Clicked Fill All Uncolored")
+    let pickColor = document.getElementById("selectedID").value;
+    for(let i = 0; i < numRows; i++){
+        let row = document.querySelectorAll("tr")[i];
+        let nodes = row.childNodes;
+        for (let element of nodes){ // Loop iterating over iterable objects
+            if (element.style.backgroundColor === baseCol){
+                element.style.backgroundColor = pickColor;
+            }
+        }
+    }
 }
