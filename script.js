@@ -86,7 +86,15 @@ function selected(){
 }
 
 function fill(){
-    alert("Clicked Fill All")
+    let pickColor = document.getElementById("selectedID").value;
+    for (let i = 0; i < numRows; i++){
+        let row = document.querySelectorAll("tr")[i];
+        let nodes = row.childNodes;
+
+        for (let element of nodes){ // Loop iterating over iterable objects
+            element.style.backgroundColor = pickColor;
+        }
+    } 
 }
 
 function clearAll(){
