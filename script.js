@@ -1,10 +1,36 @@
 let numRows = 0;
 let numCols = 0;
-let colorSelected; 
+let colorSelected;
+let baseCol = "white";
 
 //Add a row
 function addR() {
-    alert("Clicked Add Row")
+    let grid = document.getElementById("grid");
+    let tr = decument.createElement('tr');
+    if (numRows=== 0 && numCols=== 0){
+        let td = document.createElement('td');
+        td.style.backgroundColor = baseCol;
+        td.onclick = function(){
+            this.style.backgroundColor = document.getElementById("selectedID").value;
+        };
+        tr.appendChild(td);
+        grid.appendChild(tr);
+        numRows = 1;
+        numCols = 1;
+
+    }
+    else{
+        for(let i = 0; i < numCols; i++){
+            let td = document.createElement('td');
+            td.style.backgroundColor = baseCol;
+            td.onclick = function (){
+                this.style.backgroundColor = document.getElementById("selectedID").value;
+            };
+            tr.appendChild(td);
+        }
+        grid.appendChild(tr);
+        numRows++;
+}
 }
 //Add a column
 function addC() {
