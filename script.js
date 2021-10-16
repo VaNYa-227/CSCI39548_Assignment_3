@@ -6,7 +6,7 @@ let baseCol = "white";
 //Add a row
 function addR() {
     let grid = document.getElementById("grid");
-    let tr = decument.createElement('tr');
+    let tr = document.createElement('tr');
     if (numRows=== 0 && numCols=== 0){
         let td = document.createElement('td');
         td.style.backgroundColor = baseCol;
