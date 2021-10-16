@@ -1,16 +1,16 @@
 let numRows = 0;
 let numCols = 0;
 let colorSelected;
-let baseCol = "white";
+let baseCol = "white"; //Choosen base color
 
 //Add a row
 function addR() {
     let grid = document.getElementById("grid");
     let tr = document.createElement('tr');
-    if (numRows=== 0 && numCols=== 0){
+    if (numRows=== 0 && numCols=== 0){ //If not on screen
         let td = document.createElement('td');
         td.style.backgroundColor = baseCol;
-        td.onclick = function(){
+        td.onclick = function(){ //Click color
             this.style.backgroundColor = document.getElementById("selectedID").value;
         };
         tr.appendChild(td);
@@ -20,10 +20,10 @@ function addR() {
 
     }
     else{
-        for(let i = 0; i < numCols; i++){
+        for(let i = 0; i < numCols; i++){ //Make td
             let td = document.createElement('td');
             td.style.backgroundColor = baseCol;
-            td.onclick = function (){
+            td.onclick = function (){ //Click color
                 this.style.backgroundColor = document.getElementById("selectedID").value;
             };
             tr.appendChild(td);
@@ -40,7 +40,7 @@ function addC() {
     if (numRows=== 0 && numCols== 0){
         let td = document.createElement("td");
         td.style.backgroundColor = baseCol;
-        td.onclick = function (){
+        td.onclick = function (){ // Click color
             this.style.backgroundColor = document.getElementById("selectedID").value;
         };
         tr.appendChild(td);
@@ -49,10 +49,10 @@ function addC() {
         numRows = 1;
     }
     else{
-        for(let i = 0; i < row.length; i++){
+        for(let i = 0; i < row.length; i++){ //Make td
             let cell = document.createElement("td");
             cell.style.backgroundColor = baseCol;
-            cell.onclick = function (){
+            cell.onclick = function (){ //Click color
                 this.style.backgroundColor = document.getElementById("selectedID").value;
             };
             row[i].appendChild(cell);
@@ -67,17 +67,17 @@ function removeR() {
     let rowEnd = grid.lastElementChild;
     grid.removeChild(rowEnd);
     numRows--;
-    if (numRows=== 0){ numCols = 0;}
+    if (numRows=== 0){ numCols = 0;} //Reset
 }
 //Remove a column
 function removeC() {
-    for (let i = 0; i < numRows; i++){
+    for (let i = 0; i < numRows; i++){ //Remove end
         let row = document.querySelectorAll("tr")[i];
         let rowEnd = row.lastChild;
         row.removeChild(rowEnd);
     }
     numCols--;
-    if (numCols=== 0){ numRows = 0;}
+    if (numCols=== 0){ numRows = 0;} //Reset
 }
 //sets global var for selected color
 function selected(){
@@ -85,7 +85,7 @@ function selected(){
     console.log(colorSelected);
 }
 
-function fill(){
+function fill(){ //Fill boxes with color
     let pickColor = document.getElementById("selectedID").value;
     for (let i = 0; i < numRows; i++){
         let row = document.querySelectorAll("tr")[i];
@@ -97,7 +97,7 @@ function fill(){
     } 
 }
 
-function clearAll(){
+function clearAll(){ //Clear all boxes
     for (let i = 0; i < numRows; i++){
         let row = document.querySelectorAll("tr")[i];
         let nodes = row.childNodes;
@@ -107,7 +107,7 @@ function clearAll(){
     }
 }
 
-function fillU(){
+function fillU(){ //Fill not colored
     let pickColor = document.getElementById("selectedID").value;
     for(let i = 0; i < numRows; i++){
         let row = document.querySelectorAll("tr")[i];
