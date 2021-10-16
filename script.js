@@ -98,7 +98,13 @@ function fill(){
 }
 
 function clearAll(){
-    alert("Clicked Clear All")
+    for (let i = 0; i < numRows; i++){
+        let row = document.querySelectorAll("tr")[i];
+        let nodes = row.childNodes;
+        for (let element of nodes){ // Loop iterating over iterable objects
+            element.style.backgroundColor = baseCol;
+        }
+    }
 }
 
 function fillU(){
