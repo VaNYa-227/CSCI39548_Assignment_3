@@ -34,7 +34,31 @@ function addR() {
 }
 //Add a column
 function addC() {
-    alert("Clicked Add Col")
+    let grid = document.getElementById("grid");
+    let tr = document.createElement("tr");
+    let row = grid.children;
+    if (numRows=== 0 && numCols== 0){
+        let td = document.createElement("td");
+        td.style.backgroundColor = baseCol;
+        td.onclick = function (){
+            this.style.backgroundColor = document.getElementById("selectedID").value;
+        };
+        tr.appendChild(td);
+        grid.appendChild(tr);
+        numCols = 1;
+        numRows = 1;
+    }
+    else{
+        for(let i = 0; i < row.length; i++){
+            let cell = document.createElement("td");
+            cell.style.backgroundColor = baseCol;
+            cell.onclick = function (){
+                this.style.backgroundColor = document.getElementById("selectedID").value;
+            };
+            row[i].appendChild(cell);
+        }
+        numCols++;
+    }
 }
 
 //Remove a row
