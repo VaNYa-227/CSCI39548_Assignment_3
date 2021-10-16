@@ -63,7 +63,11 @@ function addC() {
 
 //Remove a row
 function removeR() {
-    alert("Clicked Remove Row")
+    let grid = document.getElementById("grid");
+    let rowEnd = grid.lastElementChild;
+    grid.removeChild(rowEnd);
+    numRows--;
+    if (numRows=== 0){ numCols = 0;}
 }
 //Remove a column
 function removeC() {
